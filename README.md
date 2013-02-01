@@ -1,16 +1,18 @@
 Cross Platform CSharp Projects
 ==============================
 
-Tools for creating cross platform CSharp projects.  Best for creating a common library that compiles to Windows, MonoDevelop and MonoTouch.
+Tools for creating cross platform CSharp projects.
+
+Best for creating a common library that compiles to Windows, MonoDevelop and MonoTouch.
 
 Usage
 =====
 
-This example uses Rake (optional install):
+This example uses Rake (optional):
 
 <pre>
-  files = FileList.new('Source/**/*.cs')
-  CrossPlatformCSProj::updateProject('Source/MyProject.csproj', files)
+files = FileList.new('Source/**/*.cs')
+CrossPlatformCSProj::updateProject('Source/MyProject.csproj', files)
 </pre>
 
 See more elaborate example:
@@ -25,10 +27,4 @@ Installation
 
 <pre>
 gem install cross_platform_csproj
-</pre>
-
-3. Optional install Rake: http://rake.rubyforge.org/
-
-<pre>
-gem install rake
 </pre>
