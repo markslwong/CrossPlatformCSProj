@@ -1,0 +1,15 @@
+= cross_platform_csproj
+
+Offers functions which synchronize the file and folder structure to a CSharp project.  Users maintain a cross platform CSharp library using the file system.  Running these functions will update CSProject files to any changes as done on the file system.  This was particularly built for creating cross platform libraries that would work with Windows, MonoAndroid and MonoTouch.
+
+== Usage
+ 
+* CrossPlatformCSProj::updateProject( projectFile, files )
+** files = FileList.new('Source/**/*.cs')
+** CrossPlatformCSProj::updateProject('Source/MyProject.csproj', files)
+
+== Copyright
+
+Copyright (c) 2013 Tyler Hamilton and Mark Wong. See LICENSE.txt for
+further details.
+
