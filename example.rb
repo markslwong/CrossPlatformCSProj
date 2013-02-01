@@ -22,7 +22,7 @@ def getAndroidFiles()
 	fileList = getCoreFiles()
 
 	fileList.include('Source/Platform/Android/**/*.cs')
-	fileList.include('Source/Platform/Optional/Rendering/Renderer.OpenGLES.cs')
+	fileList.include('Source/Shared/Rendering/Renderer.OpenGLES.cs')
 
 	return fileList
 end
@@ -31,7 +31,7 @@ def getIosFiles()
 	fileList = getCoreFiles()
 
 	fileList.include('Source/Platform/iOS/**/*.cs')
-	fileList.include('Source/Platform/Optional/Rendering/Renderer.OpenGLES.cs')
+	fileList.include('Source/Shared/Rendering/Renderer.OpenGLES.cs')
 
 	return fileList
 end
@@ -40,7 +40,7 @@ def getWindowsFiles()
 	fileList = getCoreFiles()
 
 	fileList.include('Source/Platform/Windows/**/*.cs')
-	fileList.include('Source/Platform/Optional/Rendering/Renderer.DirectX.cs')
+	fileList.include('Source/Shared/Rendering/Renderer.DirectX.cs')
 
 	return fileList
 end
