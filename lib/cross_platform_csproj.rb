@@ -3,7 +3,7 @@ require 'nokogiri'
 class CrossPlatformCSProj
 
 	def self.updateProject(projectFile, fileList)
-		rootPath = File.dirname(projectFile).gsub('\\', '/')
+		rootPath = File.dirname(projectFile).gsub('/', '\\')
 		document = openDocument(projectFile)
 		parent = getParentNode(document)
 
@@ -74,11 +74,11 @@ class CrossPlatformCSProj
 	end
 
 	def self.getRelativePath(path, pathRelative)
-		pathRelative = pathRelative.gsub('\\', '/')
-		path = path.gsub('\\', '/')
+		pathRelative = pathRelative.gsub('/', '\\')
+		path = path.gsub('/', '\\')
 		path = path.gsub(pathRelative, "")
 		
-		if (path.length > 0 and (path.start_with?('\\') || path.start_with?('/')))
+		if (path.length > 0 and path.start_with?('\\'))
 			return path[1..path.length - 1]
 		end
 
