@@ -37,9 +37,18 @@ class CrossPlatformCSProj
 	end
 
 	def self.saveDocument(document, projectFile)
-		fileHandle = File.open(projectFile, 'w')
-		fileHandle.puts(document.to_xml(:indent => 4))
+		documentContents = document.to_xml(:indent => 4)
+
+		fileHandle = File.open(projectFile)
+		documentContentsOld = fileHandle.read
 		fileHandle.close
+
+		# Only write to the file if there has been changes.  This will allow updateProject to be called many times without Visual Studio from needing to reload the project
+		if documentContentsOld != documentContents
+			fileHandle = File.open(projectFile, 'w')
+			fileHandle.puts(documentContents)
+			fileHandle.close
+		end
 	end
 
 	def self.getParentNode(document)
