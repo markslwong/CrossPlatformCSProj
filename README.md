@@ -5,24 +5,21 @@ Tools for creating cross platform CSharp projects.
 
 Best for creating a common library that compiles to Windows, MonoDevelop and MonoTouch.
 
+*Note: These instructions are for those who don't know Git or want to use the source code*
+
 Installation
 ============
 
-1. Install Ruby: http://www.ruby-lang.org/
-2. Enter this into the command line:
-
-<pre>gem install cross_platform_csproj</pre>
+* Install Ruby: http://www.ruby-lang.org/
+* Enter this into the command line: <pre>gem install cross_platform_csproj</pre>
 
 Usage
 =====
 
 This example uses Rake (optional):
 
-1. Create a file at the root folder of your project called:
-
-<pre>rakefile.rb</pre>
-
-2. Add the following to the file:
+* Create a file at the root folder of your project called: <pre>rakefile.rb</pre>
+* Add the following to the file:
 
 <pre>
 require 'cross_platform_csproj'
@@ -35,9 +32,7 @@ task :updateProjectFiles do
 end
 </pre>
 
-3. Enter this into the command line (current directory at project root):
-
-<pre>rake</pre>
+* Enter this into the command line (current directory at project root): <pre>rake</pre>
 
 See more elaborate example:
 
