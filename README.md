@@ -18,6 +18,7 @@ This example uses Rake (optional):
 
 1. Create a file at the root folder of your project called: <pre>rakefile.rb</pre>
 2. Add the following to the file:
+
 <pre>
 require 'cross_platform_csproj'
 
@@ -28,9 +29,9 @@ task :updateProjectFiles do
     CrossPlatformCSProj::updateProject('MyProject.csproj', files)
 end
 </pre>
+
 3. Enter this into the command line (current directory at project root): <pre>rake</pre>
 
 See more elaborate example:
 
   https://github.com/markslwong/CrossPlatformCSProj/blob/master/example.rb
-
