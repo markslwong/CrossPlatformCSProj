@@ -10,28 +10,28 @@ Best for creating a common library that compiles to Windows, MonoDevelop and Mon
 Installation
 ============
 
-* Install Ruby: http://www.ruby-lang.org/
-* Enter this into the command line: <pre>gem install cross_platform_csproj</pre>
+<ol>
+<li>Install Ruby: http://www.ruby-lang.org/</li>
+<li>Enter this into the command line: <pre>gem install cross_platform_csproj</pre></li>
+</ol>
 
 Usage
 =====
 
 This example uses Rake (optional):
 
-<ul>
+<ol>
 <li>Create a file at the root folder of your project called: <pre>rakefile.rb</pre></li>
-<li>Add the following to the file:
-<pre>
-require 'cross_platform_csproj'
+<li>Add the following to the file: <pre>require 'cross_platform_csproj'
 
 task :default => [:updateProjectFiles]
 
 task :updateProjectFiles do
     files = FileList.new('**/*.cs')
     CrossPlatformCSProj::updateProject('MyProject.csproj', files)
-end
-</pre></li>
+end</pre></li>
 <li>Enter this into the command line (current directory at project root): <pre>rake</pre></li>
+</ol>
 
 See more elaborate example:
 
