@@ -9,21 +9,15 @@ Installation
 ============
 
 1. Install Ruby: http://www.ruby-lang.org/
-2. Enter this into the command line:
-
-<pre>
-gem install cross_platform_csproj
-</pre>
+2. Enter this into the command line: <pre>gem install cross_platform_csproj</pre>
 
 Usage
 =====
 
 This example uses Rake (optional):
 
-1. Create a file in the root of your project called: <pre>rakefile.rb</pre>
-2. Add the following lines to the file:
-
-<pre>
+1. Create a file at the root folder of your project called: <pre>rakefile.rb</pre>
+2. Add the following to the file: <pre>
 require 'cross_platform_csproj'
 
 task :default => [:updateProjectFiles]
@@ -34,11 +28,7 @@ task :updateProjectFiles do
 end
 </pre>
 
-3. Enter this into the command line at the root project folder:
-
-<pre>
-rake
-</pre>
+3. Enter this into the command line (current directory at project root): <pre>rake</pre>
 
 See more elaborate example:
 
