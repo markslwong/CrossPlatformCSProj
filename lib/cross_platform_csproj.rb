@@ -94,4 +94,48 @@ class CrossPlatformCSProj
 		return path
 	end
 
+	def self.getCoreFiles(path)
+		fileList = FileList.new()
+
+		fileList.include("#{path}/**/*.cs")
+
+		return fileList
+	end
+
+	def self.getAndroidFiles(path)
+		fileList = getCoreFiles(path);
+
+		fileList.exclude("#{path}/**/IOS/**/*.cs")
+		fileList.exclude("#{path}/**/Windows/**/*.cs")
+
+		fileList.exclude("#{path}/**/*.IOS.cs")
+		fileList.exclude("#{path}/**/*.Windows.cs")
+
+		return fileList;
+	end
+
+	def self.getIOSFiles(path)
+		fileList = getCoreFiles(path);
+
+		fileList.exclude("#{path}/**/Android/**/*.cs")
+		fileList.exclude("#{path}/**/Windows/**/*.cs")
+
+		fileList.exclude("#{path}/**/*.Android.cs")
+		fileList.exclude("#{path}/**/*.Windows.cs")
+
+		return fileList;
+	end
+
+	def self.getWindowsFiles(path)
+		fileList = getCoreFiles(path);
+
+		fileList.exclude("#{path}/**/Android/**/*.cs")
+		fileList.exclude("#{path}/**/IOS/**/*.cs")
+
+		fileList.exclude("#{path}/**/*.Android.cs")
+		fileList.exclude("#{path}/**/*.IOS.cs")
+
+		return fileList;
+	end
+
 end
