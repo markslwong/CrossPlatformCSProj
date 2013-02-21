@@ -98,7 +98,7 @@ class CrossPlatformCSProj
 	def self.getRelativePath(path, pathRelative)
 		pathRelative = pathRelative.gsub('/', '\\')
 		path = path.gsub('/', '\\')
-		path = path.gsub!(/^#{pathRelative}/, "")
+		path = path.gsub(/^#{pathRelative}/, "")
 		
 		if (path.length > 0 and path.start_with?('\\'))
 			return path[1..path.length - 1]
