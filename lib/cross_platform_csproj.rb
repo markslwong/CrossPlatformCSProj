@@ -98,7 +98,10 @@ class CrossPlatformCSProj
 	def self.getRelativePath(path, pathRelative)
 		pathRelative = pathRelative.gsub('/', '\\')
 		path = path.gsub('/', '\\')
-		path = path.gsub(/^#{pathRelative}/, "")
+		
+		if path.start_with?(pathRelative)
+			path = path[pathRelative.length..path.length - 1]
+		end
 		
 		if (path.length > 0 and path.start_with?('\\'))
 			return path[1..path.length - 1]
@@ -109,7 +112,7 @@ class CrossPlatformCSProj
 
 	def self.getCoreFiles(path = '.')
 		fileList = FileList.new()
-
+		
 		fileList.include("#{path}/**/*.cs")
 
 		return fileList
@@ -136,7 +139,8 @@ class CrossPlatformCSProj
 		fileList.exclude("#{path}/**/*.Android.cs")
 		fileList.exclude("#{path}/**/*.Windows.cs")
 
-		fileList.exclude("#{path}/**/Resources/Resource.Designer.cs")
+		fileList.exclude("#{path}/**/Resource.Designer.cs")
+		fileList.exclude("#{path}/**/Resource.designer.cs")
 
 		return fileList;
 	end
@@ -150,8 +154,9 @@ class CrossPlatformCSProj
 		fileList.exclude("#{path}/**/*.Android.cs")
 		fileList.exclude("#{path}/**/*.IOS.cs")
 
-		fileList.exclude("#{path}/**/Resources/Resource.Designer.cs")
-
+		fileList.exclude("#{path}/**/Resource.Designer.cs")
+		fileList.exclude("#{path}/**/Resource.designer.cs")
+		
 		return fileList;
 	end
 

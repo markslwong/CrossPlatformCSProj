@@ -1,6 +1,6 @@
 Gem::Specification.new do |s|
   s.name        = 'cross_platform_csproj'
-  s.version     = '0.0.6'
+  s.version     = '0.0.7'
   s.date        = '2013-02-21'
   s.summary     = "Tools for creating cross platform CSharp projects."
   s.description = "Offers functions which synchronize the file and folder structure to a CSharp project.  Users maintain a cross platform CSharp library using the file system.  Running these functions will update CSProject files to any changes as done on the file system.  This is particularly useful for creating cross platform libraries that would work with Windows, MonoAndroid and MonoTouch."
