@@ -20,3 +20,4 @@ doc/
 bin/
 obj
 *.suo
+.DS_Store

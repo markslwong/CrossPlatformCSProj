@@ -121,9 +121,11 @@ class CrossPlatformCSProj
 	def self.getAndroidFiles(path = '.')
 		fileList = getCoreFiles(path);
 
+        fileList.exclude("#{path}/**/iOS/**/*.cs")
 		fileList.exclude("#{path}/**/IOS/**/*.cs")
 		fileList.exclude("#{path}/**/Windows/**/*.cs")
 
+		fileList.exclude("#{path}/**/*.iOS.cs")
 		fileList.exclude("#{path}/**/*.IOS.cs")
 		fileList.exclude("#{path}/**/*.Windows.cs")
 
@@ -149,9 +151,11 @@ class CrossPlatformCSProj
 		fileList = getCoreFiles(path);
 
 		fileList.exclude("#{path}/**/Android/**/*.cs")
+		fileList.exclude("#{path}/**/iOS/**/*.cs")
 		fileList.exclude("#{path}/**/IOS/**/*.cs")
 
 		fileList.exclude("#{path}/**/*.Android.cs")
+		fileList.exclude("#{path}/**/*.iOS.cs")
 		fileList.exclude("#{path}/**/*.IOS.cs")
 
 		fileList.exclude("#{path}/**/Resource.Designer.cs")
