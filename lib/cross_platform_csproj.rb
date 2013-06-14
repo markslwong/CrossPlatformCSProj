@@ -115,6 +115,9 @@ class CrossPlatformCSProj
 		
 		fileList.include("#{path}/**/*.cs")
 
+		fileList.exclude("#{path}/**/bin/**/*.cs")
+		fileList.exclude("#{path}/**/obj/**/*.cs")
+
 		return fileList
 	end
 
