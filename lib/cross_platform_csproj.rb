@@ -47,8 +47,6 @@ class CrossPlatformCSProj
 	end
 
 	def self.saveDocument(document, projectFile)
-		puts document.encoding
-
 		documentContents = document.to_xml(:indent => 2)
 
 		# Formatting to appease Visual Studio.  
@@ -57,6 +55,9 @@ class CrossPlatformCSProj
 
 		# Visual Studio will remove any newline characters on the final line
 		documentContents = documentContents.gsub(/\n$/, '')
+
+		# Visual Studio will add a strange character at the start of every project
+		documentContents = "\u{FEFF}" + documentContents
 		
 		fileHandle = File.open(projectFile)
 		documentContentsOld = fileHandle.read
@@ -65,7 +66,7 @@ class CrossPlatformCSProj
 		# Only write to the file if there has been changes.  This will allow updateProject to be called many times without Visual Studio from needing to reload the project
 		if documentContentsOld != documentContents
 			fileHandle = File.open(projectFile, 'w')
-			fileHandle.puts(documentContents)
+			fileHandle.print(documentContents)
 			fileHandle.close
 		end
 	end
