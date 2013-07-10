@@ -47,8 +47,17 @@ class CrossPlatformCSProj
 	end
 
 	def self.saveDocument(document, projectFile)
-		documentContents = document.to_xml(:indent => 4)
+		puts document.encoding
 
+		documentContents = document.to_xml(:indent => 2)
+
+		# Formatting to appease Visual Studio.  
+		# Visual Studio will self terminating XML blocks (eg: <br/>) with a space (eg: <br />)
+		documentContents = documentContents.gsub(/([^\s])\/\>/, '\1 />')
+
+		# Visual Studio will remove any newline characters on the final line
+		documentContents = documentContents.gsub(/\n$/, '')
+		
 		fileHandle = File.open(projectFile)
 		documentContentsOld = fileHandle.read
 		fileHandle.close
